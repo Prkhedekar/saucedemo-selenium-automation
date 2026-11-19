@@ -56,4 +56,6 @@ class BasePage:
         from pages.login_page import LoginPage
         self.click(self.MENU_BUTTON)
         self.click(self.LOGOUT_LINK)
-        return LoginPage(self.driver)
+        login = LoginPage(self.driver)
+        login.find(login.LOGIN_BUTTON)  # wait for the redirect to finish
+        return login
